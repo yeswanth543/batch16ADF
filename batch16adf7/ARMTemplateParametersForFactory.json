@@ -4,6 +4,21 @@
 	"parameters": {
 		"factoryName": {
 			"value": "batch16adf7"
+		},
+		"linkedService1_password": {
+			"value": ""
+		},
+		"linkedService2_connectionString": {
+			"value": ""
+		},
+		"linkedService1_properties_typeProperties_server": {
+			"value": "batch16servers.database.windows.net"
+		},
+		"linkedService1_properties_typeProperties_database": {
+			"value": "batch16sqldb"
+		},
+		"linkedService1_properties_typeProperties_userName": {
+			"value": "lingala1"
 		}
 	}
 }
