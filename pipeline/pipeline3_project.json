@@ -88,12 +88,43 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "Validationgithub",
+				"type": "Validation",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "validataion_type",
+						"type": "DatasetReference"
+					},
+					"timeout": "0.12:00:00",
+					"sleep": 10
+				}
 			}
 		],
 		"parameters": {
 			"p_array": {
 				"type": "array",
-				"defaultValue": "[    {      'folder_name'  : 'netflix_cast'      'filename'     :  'netflix_cast.csv'    },    {       'folder_name'  : 'netflix_category'       'filename'     :  'netflix_category.csv'     },         {       'folder_name'  : 'netflix_countries'        'filename'     :  'netflix_countries.csv'     },     {       'folder_name'  : 'netflix_directors'       'filename'     :  'netflix_directors.csv'     }  ]"
+				"defaultValue": [
+					{
+						"folder_name": "netflix_cast",
+						"filename": "netflix_cast.csv"
+					},
+					{
+						"folder_name": "netflix_category",
+						"filename": "netflix_category.csv"
+					},
+					{
+						"folder_name": "netflix_countries",
+						"filename": "netflix_countries.csv"
+					},
+					{
+						"folder_name": "netflix_directors",
+						"filename": "netflix_directors.csv"
+					}
+				]
 			}
 		},
 		"annotations": []
