@@ -69,8 +69,8 @@
 									"referenceName": "ds_source",
 									"type": "DatasetReference",
 									"parameters": {
-										"filename": {
-											"value": "@item().filename",
+										"file_name": {
+											"value": "@item().file_name",
 											"type": "Expression"
 										}
 									}
@@ -99,7 +99,16 @@
 			{
 				"name": "Validation1",
 				"type": "Validation",
-				"dependsOn": [],
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
@@ -113,6 +122,8 @@
 			{
 				"name": "Web1",
 				"type": "WebActivity",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -130,6 +141,8 @@
 			{
 				"name": "Set variable1",
 				"type": "SetVariable",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "Web1",
@@ -152,6 +165,12 @@
 				}
 			}
 		],
+		"parameters": {
+			"p_array": {
+				"type": "array",
+				"defaultValue": "[{'foldername' : 'netflixcast', 'filename' : 'netflix_cast.csv'}, {'foldername' : 'netflixcategory', 'filename' : 'netflix_category.csv '},{'foldername' : 'netflixcountry', 'filename' : 'netflix_countries.csv'},{'foldername' : 'netflixdirectors', 'filename' : 'netflix_directors.csv'}]"
+			}
+		},
 		"variables": {
 			"metadata": {
 				"type": "String"
