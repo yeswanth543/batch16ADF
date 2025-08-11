@@ -168,7 +168,24 @@
 		"parameters": {
 			"p_array": {
 				"type": "array",
-				"defaultValue": "[{'foldername' : 'netflixcast', 'filename' : 'netflix_cast.csv'}, {'foldername' : 'netflixcategory', 'filename' : 'netflix_category.csv '},{'foldername' : 'netflixcountry', 'filename' : 'netflix_countries.csv'},{'foldername' : 'netflixdirectors', 'filename' : 'netflix_directors.csv'}]"
+				"defaultValue": [
+					{
+						"foldername": "netflixcast",
+						"filename": "netflix_cast.csv"
+					},
+					{
+						"foldername": "netflixcategory",
+						"filename": "netflix_category.csv"
+					},
+					{
+						"foldername": "netflixcountry",
+						"filename": "netflix_countries.csv"
+					},
+					{
+						"foldername": "netflixdirectors",
+						"filename": "netflix_directors.csv"
+					}
+				]
 			}
 		},
 		"variables": {
