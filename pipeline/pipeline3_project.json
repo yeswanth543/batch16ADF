@@ -5,7 +5,14 @@
 			{
 				"name": "ForEach1",
 				"type": "ForEach",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Validationgithub",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
@@ -92,7 +99,14 @@
 			{
 				"name": "Validationgithub",
 				"type": "Validation",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
@@ -119,6 +133,30 @@
 					"method": "GET",
 					"url": "https://github.com/anshlambagit/Netflix_Azure_Data_Engineering_Project/tree/main/RawData_AND_Notebooks"
 				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Getmetadata",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "metadata",
+					"value": {
+						"value": "@activity('Getmetadata').output.Response",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"parameters": {
@@ -142,6 +180,11 @@
 						"filename": "netflix_directors.csv"
 					}
 				]
+			}
+		},
+		"variables": {
+			"metadata": {
+				"type": "String"
 			}
 		},
 		"annotations": []
