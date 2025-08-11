@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Copy data1').output",
+						"value": "@pipeline().parameters.p_array",
 						"type": "Expression"
 					},
 					"activities": [
@@ -69,7 +69,7 @@
 									"referenceName": "ds_source",
 									"type": "DatasetReference",
 									"parameters": {
-										"file_name": {
+										"filename": {
 											"value": "@item().file_name",
 											"type": "Expression"
 										}
